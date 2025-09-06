@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KRISHNA SUDHAKAR - PROFILE</title>
+ 
+  <style>
+    /* ===== General Reset ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* ===== Body ===== */
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.8;
+      background: #f9f9f9;
+      color: #333;
+      scroll-behavior: smooth;
+    }
+
+    /* ===== Header & Navigation ===== */
+    header {
+      background: linear-gradient(135deg, #1a1a1a, #333);
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    header h1 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+      letter-spacing: 2px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      flex-wrap: wrap;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 8px 15px;
+      border-radius: 5px;
+      transition: all 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      background: #f39c12;
+      color: black;
+      transform: scale(1.1);
+    }
+
+    /* ===== Sections ===== */
+    section {
+      padding: 80px 20px;
+      text-align: center;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 1s ease, transform 1s ease;
+    }
+
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    section:nth-child(even) {
+      background: #f0f0f0;
+    }
+
+    section h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #222;
+      position: relative;
+      display: inline-block;
+    }
+
+    section h2::after {
+      content: "";
+      display: block;
+      width: 60px;
+      height: 3px;
+      background: #f39c12;
+      margin: 8px auto 0;
+      border-radius: 2px;
+    }
+
+    /* ===== Home Section ===== */
+    #home {
+      background: linear-gradient(135deg, #f39c12, #e67e22);
+      color: white;
+      padding: 120px 20px;
+    }
+    .profile-pic {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  vertical-align: middle;
+  margin-right: 10px;
+  object-fit: cover;
+}
+
+    #home h2 {
+      font-size: 2.5rem;
+    }
+
+    #home p {
+      font-size: 1.2rem;
+      margin-top: 15px;
+    }
+
+   
+
+    /* ===== Achievements ===== */
+    #achievements ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    #achievements ul li {
+      margin: 12px 0;
+      padding: 12px;
+      background: #fff;
+      border-left: 5px solid #f39c12;
+      display: inline-block;
+      width: 70%;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      border-radius: 8px;
+      transition: 0.3s;
+    }
+
+    #achievements ul li:hover {
+      transform: scale(1.05);
+      background: #fef6e4;
+    }
+
+   
+
+    
+    .home-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+  max-width: 1000px;
+  margin: auto;
+  text-align: left;
+}
+
+/* Home text */
+.home-text {
+  flex: 1;
+}
+
+/* Home photo */
+.home-photo img {
+  width: 280px;   /* adjust size as needed */
+  height: 280px;  /* square shape */
+  object-fit: cover;
+  border-radius: 12px; /* makes corners rounded (remove if you want sharp square) */
+  box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+}
+
+    /* ===== Contact Form ===== */
+    form {
+      margin-top: 25px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+
+    form input, form textarea {
+      width: 350px;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      outline: none;
+      font-size: 1rem;
+      transition: border 0.3s;
+    }
+
+    form input:focus, form textarea:focus {
+      border: 1px solid #f39c12;
+    }
+
+    form button {
+      background: #f39c12;
+      color: white;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.3s;
+    }
+
+    form button:hover {
+      background: #e67e22;
+      transform: scale(1.05);
+    }
+
+    /* ===== Footer ===== */
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #222;
+      color: white;
+      margin-top: 20px;
+    }
+
+    /* ===== Highlight ===== */
+    .highlight {
+      color: #ffeb3b;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <img src="photo2.jpeg" alt="profile photo" class="profile-pic">
+    <h1>Welcome to My Profile</h1>
+    <nav>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About Me</a></li>
+        <li><a href="#achievements">Achievements</a></li>
+         <li><a href="#qualification">qualification card</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Home Section -->
+ <section id="home">
+  <div class="home-container">
+    <div class="home-text">
+      <h2>Hello, I'm <span class="highlight">Krishna Sudhakar</span></h2>
+      <p>A creative and enthusiastic learner, passionate about technology, design, and building meaningful digital experiences.</p>
+    </div>
+    <div class="home-photo">
+      <img src="photo2.jpeg" alt="profile photo">
+    </div>
+  </div>
+</section>
+
+  <!-- About Me Section -->
+  <section id="about" style="padding: 30px; background: #fffbe7; border-radius: 15px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin: 20px 0;">
+  <h2 style="font-size: 28px; color: #333; text-align: center; margin-bottom: 15px;">ABOUT ME</h2>
+  
+  <p style="font-size: 18px; line-height: 1.8; color: #444; text-align: justify;">
+    My name is <b>Krishna Sudhakar</b>. I am a motivated student who is deeply interested in technology and web development. 
+    I have developed skills in <b>HTML, CSS, JavaScript, Python as well as C</b>, and I love experimenting with creative designs to build 
+    beautiful and user-friendly websites. Beyond coding, I am curious about problem-solving, innovation, and exploring 
+    how technology can make everyday life easier.
+  </p>
+
+  <!-- Basic Details Section -->
+<section id="basic-details" style="padding: 50px; background: linear-gradient(120deg, #f0f9ff, #ffffff); border-radius: 15px; box-shadow: 0 8px 18px rgba(0,0,0,0.12); margin: 40px 0;">
+  
+  <h2 style="font-size: 32px; color: #0077b6; text-align: center; margin-bottom: 30px; letter-spacing: 1px;">
+    📋 Basic Details
+  </h2>
+
+  <div style="max-width: 850px; margin: 0 auto; background: #ffffff; border-radius: 15px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); padding: 35px;">
+    
+    <table style="width: 100%; border-collapse: collapse; font-size: 17px; color: #333;">
+      <tbody>
+        <tr style="border-bottom: 1px solid #eee;">
+          <td style="padding: 12px 15px; font-weight: 600; color: #0077b6;">Gender</td>
+          <td style="padding: 12px 15px;">Female</td>
+        </tr>
+        <tr style="border-bottom: 1px solid #eee;">
+          <td style="padding: 12px 15px; font-weight: 600; color: #0077b6;">Date of Birth</td>
+          <td style="padding: 12px 15px;">28-09-2004</td>
+        </tr>
+        <tr style="border-bottom: 1px solid #eee;">
+          <td style="padding: 12px 15px; font-weight: 600; color: #0077b6;">Mother Tongue</td>
+          <td style="padding: 12px 15px;">Malayalam</td>
+        </tr>
+        <tr style="border-bottom: 1px solid #eee;">
+          <td style="padding: 12px 15px; font-weight: 600; color: #0077b6;">Category</td>
+          <td style="padding: 12px 15px;">General</td>
+        </tr>
+        <tr style="border-bottom: 1px solid #eee;">
+          <td style="padding: 12px 15px; font-weight: 600; color: #0077b6;">Religion</td>
+          <td style="padding: 12px 15px;">Hindu</td>
+        </tr>
+        <tr style="border-bottom: 1px solid #eee;">
+          <td style="padding: 12px 15px; font-weight: 600; color: #0077b6;">Caste</td>
+          <td style="padding: 12px 15px;">Pothuwal</td>
+        </tr>
+        <tr style="border-bottom: 1px solid #eee;">
+          <td style="padding: 12px 15px; font-weight: 600; color: #0077b6;">Nationality</td>
+          <td style="padding: 12px 15px;">Indian</td>
+        </tr>
+        <tr style="border-bottom: 1px solid #eee;">
+          <td style="padding: 12px 15px; font-weight: 600; color: #0077b6;">Blood Group</td>
+          <td style="padding: 12px 15px;">B-</td>
+        </tr>
+        <tr>
+          <td style="padding: 12px 15px; font-weight: 600; color: #0077b6;">Permanent Address</td>
+          <td style="padding: 12px 15px;">Thiruvathira House, Kankol Payyanur, 670307, Kannur, Kerala</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+  <!-- Education Box -->
+  <div style="margin-top: 25px; padding: 20px; border-left: 6px solid #ffcc00; background: #fff3cd; border-radius: 10px;">
+    <h3 style="margin: 0; font-size: 22px; color: #222;">🎓 Education</h3>
+    <p style="margin: 8px 0 0; font-size: 17px; color: #333;">
+      Final Year Student (Expected Graduation: <b>2026</b>)<br>
+      Bachelor of Technology in <b>Computer Science and Engineering</b><br>
+      <i>College of Engineering, Trikaripur</i>
+    </p>
+  </div>
+</section>
+<section id="skills" style="padding: 40px; background: linear-gradient(135deg, #e0f7fa, #ffffff); border-radius: 15px; box-shadow: 0 6px 15px rgba(0,0,0,0.12); margin: 30px 0;">
+  <h2 style="font-size: 30px; color: #222; text-align: center; margin-bottom: 25px; letter-spacing: 1px;">
+    💡 Skills and Technologies
+  </h2>
+  
+
+<!-- Programming Languages -->
+<div style="padding: 30px; background: #ffffff; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); max-width: 700px; margin: 0 auto;">
+  <h3 style="margin: 0 0 20px; font-size: 22px; color: #0077b6; text-align: center; border-bottom: 2px solid #0077b6; padding-bottom: 10px;">
+    🖥️ Programming Languages
+  </h3>
+
+  <div style="display: flex; flex-direction: column; gap: 18px;">
+
+    <!-- HTML5 -->
+    <div style="padding: 18px; background: #f1faff; border-left: 6px solid #0077b6; border-radius: 10px; font-size: 17px; font-weight: 500; color: #333; box-shadow: 0 2px 6px rgba(0,0,0,0.1); transition: all 0.3s ease; cursor: pointer;"
+         onmouseover="this.style.transform='scale(1.03)'; this.style.background='#e3f2fd'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.2)';"
+         onmouseout="this.style.transform='scale(1)'; this.style.background='#f1faff'; this.style.boxShadow='0 2px 6px rgba(0,0,0,0.1)';">
+      🔹 HTML5 – Markup language used for structuring web pages.
+    </div>
+
+    <!-- CSS3 -->
+    <div style="padding: 18px; background: #f1faff; border-left: 6px solid #0096c7; border-radius: 10px; font-size: 17px; font-weight: 500; color: #333; box-shadow: 0 2px 6px rgba(0,0,0,0.1); transition: all 0.3s ease; cursor: pointer;"
+         onmouseover="this.style.transform='scale(1.03)'; this.style.background='#e3f2fd'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.2)';"
+         onmouseout="this.style.transform='scale(1)'; this.style.background='#f1faff'; this.style.boxShadow='0 2px 6px rgba(0,0,0,0.1)';">
+      🔹 CSS3 – Styling language for designing and formatting web pages.
+    </div>
+
+    <!-- JavaScript -->
+    <div style="padding: 18px; background: #f1faff; border-left: 6px solid #00b4d8; border-radius: 10px; font-size: 17px; font-weight: 500; color: #333; box-shadow: 0 2px 6px rgba(0,0,0,0.1); transition: all 0.3s ease; cursor: pointer;"
+         onmouseover="this.style.transform='scale(1.03)'; this.style.background='#e3f2fd'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.2)';"
+         onmouseout="this.style.transform='scale(1)'; this.style.background='#f1faff'; this.style.boxShadow='0 2px 6px rgba(0,0,0,0.1)';">
+      🔹 JavaScript – Programming language for dynamic and interactive websites.
+    </div>
+
+    <!-- Python -->
+    <div style="padding: 18px; background: #f1faff; border-left: 6px solid #48cae4; border-radius: 10px; font-size: 17px; font-weight: 500; color: #333; box-shadow: 0 2px 6px rgba(0,0,0,0.1); transition: all 0.3s ease; cursor: pointer;"
+         onmouseover="this.style.transform='scale(1.03)'; this.style.background='#e3f2fd'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.2)';"
+         onmouseout="this.style.transform='scale(1)'; this.style.background='#f1faff'; this.style.boxShadow='0 2px 6px rgba(0,0,0,0.1)';">
+      🔹 Python – High-level programming language for versatile applications.
+    </div>
+
+    <!-- C Programming -->
+    <div style="padding: 18px; background: #f1faff; border-left: 6px solid #90e0ef; border-radius: 10px; font-size: 17px; font-weight: 500; color: #333; box-shadow: 0 2px 6px rgba(0,0,0,0.1); transition: all 0.3s ease; cursor: pointer;"
+         onmouseover="this.style.transform='scale(1.03)'; this.style.background='#e3f2fd'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.2)';"
+         onmouseout="this.style.transform='scale(1)'; this.style.background='#f1faff'; this.style.boxShadow='0 2px 6px rgba(0,0,0,0.1)';">
+      🔹 C Programming – Fundamental programming language for system-level coding.
+    </div>
+
+  </div>
+</div>
+
+
+
+  <!-- Achievements Section -->
+  <section id="achievements">
+    <h2>ACHIEVEMENTS</h2>
+    <ul>
+      <li>🏆 Earned my badge in "introduction to generative AI concepts" from microsoft.</li>
+      <li>📜 Earned certification in SQL & Database from LearnTube.ai</li>
+      <li>💡 Earned certification in "Microsoft Azura Fundamentals:Describe cloud concepts"</li>
+      <li>🤝 Earned badge in "Describe cloud service types"</li>
+    </ul>
+  </section>
+<section id="qualification" style="padding: 50px; background: linear-gradient(135deg, #ffffff, #f0f9ff); border-radius: 15px; box-shadow: 0 6px 15px rgba(0,0,0,0.12); margin: 40px 0;">
+  
+  <h2 style="font-size: 32px; color: #222; text-align: center; margin-bottom: 25px; letter-spacing: 1px;">
+    🎓 Qualification Details
+  </h2>
+
+  <!-- Qualification Card -->
+  <div style="max-width: 700px; margin: 0 auto; background: #ffffff; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); padding: 25px;">
+    
+    <h3 style="margin: 0 0 15px; font-size: 22px; color: #0077b6; border-bottom: 2px solid #0077b6; padding-bottom: 8px;">
+      Plus Two (Science) – Higher Secondary Education Board
+    </h3>
+
+    <div style="font-size: 17px; color: #333; line-height: 1.8;">
+      <p><b>Qualified Year:</b> 2021–2022</p>
+      <p><b>Total Marks:</b> 1166</p>
+      <p><b>Percentage:</b> 95.6%</p>
+      <p><b>Entrance Type:</b> Kerala Entrance</p>
+    </div>
+  </div>
+</section>
+  
+
+ 
+
+  <!-- Contact Section -->
+<section id="contact" style="padding: 50px; background: linear-gradient(135deg, #f9f9f9, #eef2f3); border-radius: 15px; box-shadow: 0 6px 15px rgba(0,0,0,0.12); margin: 40px 0;">
+  
+  <h2 style="font-size: 32px; color: #222; text-align: center; margin-bottom: 10px; letter-spacing: 1px;">
+    📬 Contact Me
+  </h2>
+  <p style="font-size: 18px; text-align: center; color: #555; margin-bottom: 30px;">
+    If you’d like to connect with me, feel free to drop a message. I’d love to hear from you!
+  </p>
+
+  <!-- Contact Info -->
+  <div style="text-align: center; margin-bottom: 25px; font-size: 17px; color: #333;">
+    <p>📧 Email: <a href="mailto:krishnasudhakar79@gmail.com" style="color: #0077b6; text-decoration: none; font-weight: 500;">krishnasudhakar79@gmail.com</a></p>
+    <p>📱 Phone: <span style="color: #0077b6; font-weight: 500;">+91 9447506917</span></p>
+  </div>
+
+  <!-- Contact Form -->
+  <form style="max-width: 600px; margin: 0 auto; display: flex; flex-direction: column; gap: 15px;">
+    <input type="text" placeholder="Your Name" required 
+      style="padding: 12px 15px; font-size: 16px; border: 1px solid #ccc; border-radius: 8px; outline: none; transition: 0.3s;">
+    
+    <input type="email" placeholder="Your Email" required 
+      style="padding: 12px 15px; font-size: 16px; border: 1px solid #ccc; border-radius: 8px; outline: none; transition: 0.3s;">
+    
+    <textarea rows="5" placeholder="Your Message" 
+      style="padding: 12px 15px; font-size: 16px; border: 1px solid #ccc; border-radius: 8px; outline: none; transition: 0.3s; resize: none;"></textarea>
+    
+    <button type="submit" 
+      style="padding: 14px; font-size: 17px; border: none; border-radius: 8px; background: #0077b6; color: white; font-weight: 600; cursor: pointer; transition: 0.3s;">
+      🚀 Send Message
+    </button>
+  </form>
+
+  <!-- Social Links -->
+  <div style="margin-top: 40px; text-align: center;">
+    <h3 style="font-size: 20px; color: #222; margin-bottom: 15px;">🌐 Connect with Me</h3>
+    <div style="display: flex; justify-content: center; gap: 20px;">
+
+      <!-- LinkedIn -->
+      <a href="https://www.linkedin.com/in/your-profile" target="_blank" 
+         style="text-decoration: none; font-size: 18px; font-weight: 500; color: #0077b6; padding: 10px 18px; border-radius: 30px; border: 2px solid #0077b6; transition: 0.3s;">
+         🔗 LinkedIn
+      </a>
+
+      <!-- Instagram -->
+      <a href="https://www.instagram.com/krishna_sudhakar_7" target="_blank" 
+         style="text-decoration: none; font-size: 18px; font-weight: 500; color: #e1306c; padding: 10px 18px; border-radius: 30px; border: 2px solid #e1306c; transition: 0.3s;">
+         📸 Instagram
+      </a>
+
+      <!-- Mail -->
+      <a href="mailto:krishnasudhakar79@gmail.com" 
+         style="text-decoration: none; font-size: 18px; font-weight: 500; color: #333; padding: 10px 18px; border-radius: 30px; border: 2px solid #333; transition: 0.3s;">
+         📧 Mail
+      </a>
+
+    </div>
+  </div>
+</section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Krishna Sudhakar. Designed with ❤️</p>
+  </footer>
+
+  <!-- ===== JavaScript for Animations ===== -->
+  <script>
+    // Fade-in effect on scroll
+    const sections = document.querySelectorAll("section");
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        }
+      });
+    }, { threshold: 0.2 });
+
+    sections.forEach(section => {
+      observer.observe(section);
+    });
+  </script>
+</body>
+</html>
